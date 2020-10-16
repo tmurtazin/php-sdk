@@ -1,0 +1,31 @@
+{
+    "name": "chatium/php-sdk",
+    "description": "Chatium SDK for PHP developers",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Chatium Team",
+            "email": "hello@chatium.com"
+        },
+        {
+            "name": "Aleksandr Galchenkov",
+            "email": "galchenkov@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "firebase/php-jwt": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Chatium": "src/"
+        },
+        "files": [
+            "src/Chatium/Blocks.php",
+            "src/Chatium/Responses.php",
+            "src/Chatium/Actions.php",
+            "src/Chatium/Context.php"
+        ]
+    }
+}
