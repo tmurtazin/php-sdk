@@ -14,18 +14,20 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.0",
-        "firebase/php-jwt": "dev-master"
+        "php": ">=7",
+        "firebase/php-jwt": "dev-master",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-0": {
             "Chatium": "src/"
         },
         "files": [
-            "src/Chatium/Blocks.php",
-            "src/Chatium/Responses.php",
             "src/Chatium/Actions.php",
-            "src/Chatium/Context.php"
+            "src/Chatium/Blocks.php",
+            "src/Chatium/Context.php",
+            "src/Chatium/Responses.php",
+            "src/Chatium/Types.php"
         ]
     }
 }
