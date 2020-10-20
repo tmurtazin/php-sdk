@@ -12,11 +12,12 @@
             "email": "galchenkov@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=7",
-        "firebase/php-jwt": "dev-master",
-        "ext-json": "*"
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "7.2",
+        "firebase/php-jwt": "5.2"
     },
     "autoload": {
         "psr-0": {
@@ -25,7 +26,6 @@
         "files": [
             "src/Chatium/Actions.php",
             "src/Chatium/Blocks.php",
-            "src/Chatium/Context.php",
             "src/Chatium/Responses.php",
             "src/Chatium/Types.php"
         ]
