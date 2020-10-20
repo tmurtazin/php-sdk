@@ -100,15 +100,7 @@ class Client
      */
     public function get(string $url)
     {
-        $accountUrl = 'https://' . $this->context['account']['host'] . '/' . ltrim($url, '/');
-        $response = (new HttpClient())->get($accountUrl, [
-            'headers' => [
-                'x-chatium-api-key' => $this->apiKey,
-                'authorization' => $this->createChatiumApiToken('get', $accountUrl),
-            ],
-        ]);
-
-        return json_decode($response->getBody());
+        return $this->request('get', $url, []);
     }
 
     /**
@@ -119,12 +111,24 @@ class Client
      */
     public function post(string $url, $payload = [])
     {
-        $accountUrl = 'https://' . $this->context['account']['host'] . '/' . ltrim($url, '/');
-        $response = (new HttpClient())->post($accountUrl, [
+        return $this->request('post', $url, $payload);
+    }
+
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array $payload
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function request(string $method, string $url, $payload = [])
+    {
+        $accountUrl = $this->context['account']['host'] . '/' . ltrim($url, '/');
+        $response = (new HttpClient())->request($method, 'https://' . $accountUrl, [
             'json' => $payload,
             'headers' => [
                 'x-chatium-api-key' => $this->apiKey,
-                'authorization' => $this->createChatiumApiToken('post', $accountUrl),
+                'authorization' => $this->createChatiumApiToken($method, $accountUrl),
             ],
         ]);
 
