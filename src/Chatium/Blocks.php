@@ -29,7 +29,7 @@ function Audio(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['title'])) $block['title'] = $props['title'];
     if (isset($props['description'])) $block['description'] = $props['description'];
     if (isset($props['fileHash'])) $block['fileHash'] = $props['fileHash'];
@@ -49,7 +49,7 @@ function Button(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['bgColor'])) $block['bgColor'] = $props['bgColor'];
     if (isset($props['fontColor'])) $block['fontColor'] = $props['fontColor'];
     if (isset($props['fontSize'])) $block['fontSize'] = $props['fontSize'];
@@ -73,7 +73,7 @@ function Footer(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['visibleAlways'])) $block['visibleAlways'] = $props['visibleAlways'];
 
     return $block;
@@ -90,7 +90,7 @@ function Gallery(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['onClick'])) $block['onClick'] = $props['onClick'];
     if (isset($props['initialSlideIndex'])) $block['initialSlideIndex'] = $props['initialSlideIndex'];
     if (isset($props['slides'])) $block['slides'] = $props['slides'];
@@ -114,7 +114,7 @@ function Header(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['title'])) $block['title'] = $props['title'];
     if (isset($props['description'])) $block['description'] = $props['description'];
     if (isset($props['logo'])) $block['logo'] = $props['logo'];
@@ -141,13 +141,13 @@ function HorizontalCards(array $props, array $blocks = [])
     requiredField($block['type'], 'cards', $props);
 
     $block['size'] = $props['size'];
-    $block['size'] = $props['size'];
+    $block['shape'] = $props['shape'];
     $block['textPosition'] = $props['textPosition'];
     $block['cards'] = $props['cards'];
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['initialCardId'])) $block['initialCardId'] = $props['initialCardId'];
 
     return $block;
@@ -169,9 +169,10 @@ function Image(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['onClick'])) $block['onClick'] = $props['onClick'];
     if (isset($props['width'])) $block['width'] = $props['width'];
+    if (isset($props['height'])) $block['height'] = $props['height'];
     if (isset($props['image'])) $block['image'] = $props['image'];
     if (isset($props['resizeMode'])) $block['resizeMode'] = $props['resizeMode'];
     if (isset($props['imageSize'])) $block['imageSize'] = $props['imageSize'];
@@ -195,7 +196,7 @@ function ListItem(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['description'])) $block['description'] = $props['description'];
     if (isset($props['image'])) $block['image'] = $props['image'];
     if (isset($props['imageSize'])) $block['imageSize'] = $props['imageSize'];
@@ -238,7 +239,7 @@ function Search(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['bgColor'])) $block['bgColor'] = $props['bgColor'];
     if (isset($props['borderColor'])) $block['borderColor'] = $props['borderColor'];
     if (isset($props['defaultValue'])) $block['defaultValue'] = $props['defaultValue'];
@@ -263,14 +264,9 @@ function Text(array $props, array $blocks = [])
 {
     $block = ['type' => 'text'];
 
-    if ((!isset($props['text']) && !isset($props['tokens']))
-        || (isset($props['text']) && isset($props['tokens']))) {
-        throw new Exception("'text' or 'tokens' is required text in block props.");
-    }
-
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['text'])) $block['text'] = $props['text'];
     if (isset($props['tokens'])) $block['tokens'] = $props['tokens'];
     if (isset($props['onClick'])) $block['onClick'] = $props['onClick'];
@@ -296,7 +292,7 @@ function Video(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['hlsUrl'])) $block['hlsUrl'] = $props['hlsUrl'];
     if (isset($props['imageUrl'])) $block['imageUrl'] = $props['imageUrl'];
     if (isset($props['mp4Url'])) $block['mp4Url'] = $props['mp4Url'];
@@ -328,7 +324,7 @@ function InlineVideo(array $props, array $blocks = [])
 
     commonBlockProps($block, $props);
 
-    if (count($blocks) > 0) $props['blocks'] = $blocks;
+    if (count($blocks) > 0) $block['blocks'] = $blocks;
     if (isset($props['hlsUrl'])) $block['hlsUrl'] = $props['hlsUrl'];
     if (isset($props['imageUrl'])) $block['imageUrl'] = $props['imageUrl'];
     if (isset($props['mp4Url'])) $block['mp4Url'] = $props['mp4Url'];
