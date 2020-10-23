@@ -8,6 +8,8 @@ use function Chatium\Types\requiredField;
  * @param array $props - common props
  */
 function commonBlockProps(array &$block, array $props) {
+    if (isset($props['id'])) $block['id'] = $props['id'];
+    if (isset($props['key'])) $block['key'] = $props['key'];
     if (isset($props['containerStyle'])) $block['containerStyle'] = $props['containerStyle'];
     if (isset($props['fallback'])) $block['fallback'] = $props['fallback'];
     if (isset($props['onContext'])) $block['onContext'] = $props['onContext'];
