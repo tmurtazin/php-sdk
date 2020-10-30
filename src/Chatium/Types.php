@@ -204,6 +204,7 @@ function Screen($props, array $blocks = [])
     if (isset($props['pinnedBlocks'])) $block['pinnedBlocks'] = $props['pinnedBlocks'];
     if (isset($props['chat'])) $block['chat'] = Chat($props['chat']);
     if (isset($props['fullScreenGallery'])) $block['fullScreenGallery'] = $props['fullScreenGallery'];
+    if (isset($props['fullScreenStories'])) $block['fullScreenStories'] = $props['fullScreenStories'];
     if (isset($props['footer'])) $block['footer'] = Footer($props['footer']);
     if (isset($props['search'])) $block['search'] = Search($props['search']);
     if (isset($props['needEmailCheck'])) $block['needEmailCheck'] = $props['needEmailCheck'];
