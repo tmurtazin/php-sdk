@@ -231,3 +231,57 @@ function Screen($props, array $blocks = [])
 
     return $block;
 }
+
+
+/**
+ * @param $props
+ * @return array
+ * @throws Exception
+ */
+function FullScreenStory($props)
+{
+    $block = [];
+
+    requiredField('FullScreenStory', 'id', $props);
+    $block['id'] = $props['id'];
+
+    if (isset($props['stories'])) $block['stories'] = $props['stories'];
+
+    return $block;
+}
+
+/**
+ * @param $props
+ * @return array
+ * @throws Exception
+ */
+function Story($props)
+{
+    $block = [];
+
+    requiredField('Stories', 'id', $props);
+    $block['id'] = $props['id'];
+
+    if (isset($props['slides'])) $block['slides'] = $props['slides'];
+
+    return $block;
+}
+
+/**
+ * @param $props
+ * @return array
+ * @throws Exception
+ */
+function Slide($props)
+{
+    $block = [];
+
+    requiredField('Slide', 'id', $props);
+    $block['id'] = $props['id'];
+
+    if (isset($props['stretchContent'])) $block['stretchContent'] = $props['stretchContent'];
+    if (isset($props['content'])) $block['content'] = $props['content'];
+    if (isset($props['overlay'])) $block['overlay'] = $props['overlay'];
+
+    return $block;
+}
