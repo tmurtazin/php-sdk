@@ -64,6 +64,7 @@ class Client
             'auth' => [
                 'id' => $payload->aid,
                 'type' => $payload->atp,
+                'key' => $payload->akey,
                 'token' => $payload->tkn,
             ],
             'user' => [
